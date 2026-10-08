@@ -1,0 +1,19 @@
+{
+  "name": "komando-keuangan",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "db:init": "node -e \"require('pg');const f=require('fs'),{Pool}=require('pg');new Pool({connectionString:process.env.DATABASE_URL,ssl:process.env.PGSSL==='1'?{rejectUnauthorized:false}:false}).query(f.readFileSync('db/schema.sql','utf8')).then(()=>{console.log('Skema siap');process.exit()})\""
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^15.0.0",
+    "pg": "^8.12.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
